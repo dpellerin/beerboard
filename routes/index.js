@@ -3,6 +3,14 @@ var router = express.Router();
 var config = require('../config/config');
 var sqlite3 = require('sqlite3').verbose();
 
+var srmToRgb = function(srm){
+    var r = Math.round(Math.min(255, Math.max(0, 255 * Math.pow(0.975, srm))));
+    var g = Math.round(Math.min(255, Math.max(0, 245 * Math.pow(0.88, srm))));
+    var b = Math.round(Math.min(255, Math.max(0, 220 * Math.pow(0.7, srm))));
+    console.log(r);
+    return "rgb(" + r + "," + g + "," + b + ")"
+}
+
 /* GET home page. */
 router.get('/', function (req, res) {
     let db = new sqlite3.Database(config.dbName, (err) => {
@@ -19,10 +27,10 @@ router.get('/', function (req, res) {
         }
         res.render('index', {
             title: 'Beer Board',
-            rows: rows
+            rows: rows,
+            convertSRM: srmToRgb
         });
     });
-
     db.close();
 });
 
