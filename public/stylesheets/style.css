@@ -1,8 +1,94 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  background: url("/images/woodbg.jpg");
+}
+div.tap-display p {
+  font-size: 1.8em;
+}
+.tap-number {
+	background-color: #bbb;
+	width: 80px;
 }
 
-a {
-  color: #00B7FF;
+/* SRM, IBU, ABV Indicators */
+.srm-container{
+	position: relative;
+	height: 100px;
+	width: 55px;
+	margin: 0 auto;
+}
+
+.srm-indicator{
+	position: absolute; 
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	
+	-webkit-mask-image: url(img/srm/pint-mask.png);
+	-o-mask-image: url(img/srm/pint-mask.png);
+	-moz-mask-image: url(img/srm/pint-mask.png);
+	mask-image: url(img/srm/pint-mask.png);
+}
+
+.srm-stroke{
+	position: absolute; 
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	
+	background: url(img/srm/pint-stroke.png)
+}
+
+
+.ibu-container{
+	position: relative;
+	height:100px;
+	width:53px;
+	margin: 0 auto;
+}
+.ibu-indicator{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: url(img/ibu/stroke.png) no-repeat bottom left;
+}
+.ibu-indicator .ibu-full{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: url(img/ibu/full.png) no-repeat bottom left;
+}
+	
+.ibu-max{
+	position: absolute;
+	top: -5px;
+	left: 35px;
+}
+.abv-container{
+	position: relative;
+	height: 100px;
+	width: 115px;
+	margin: 8px auto;
+}	
+.abv-indicator{
+	display: inline-block;
+	position: relative;
+	height:100%;
+	width:50%;
+	background: url(img/abv/stroke.png) no-repeat bottom left;
+}
+.abv-indicator .abv-full{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background: url(img/abv/full.png) no-repeat bottom left;
 }

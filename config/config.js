@@ -1,4 +1,4 @@
-var dbName = './db/beerboard.db';
+var dbName = './db/beerboard.sqlt';
 
 module.exports = {
     dbName: dbName

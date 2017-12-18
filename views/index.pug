@@ -1,6 +1,37 @@
 extends layout
 
+mixin tap(row)
+    div.tap-display.border.rounded.p-3
+        div.tap-number.display-3.rounded-circle.text-center= row["tap_id"] 
+        h1= row["name"]
+        h3.mb-4= row["brewery_name"] + " - " + row["style"]
+        div.container-fluid
+            div.row
+                div.col.text-center 
+                    img(src="/images/srm/pint-stroke.png")
+                    p= row["srm"]
+                div.col.text-center 
+                    img(src="/images/ibu/full.png")
+                    p= row["ibu"]
+                div.col.text-center 
+                    img(src="/images/abv/full.png")
+                    p= row["abv"] + "%"
+        p= row["description"] 
+
 block content
-  h1= title
-  p Welcome to #{title}
-  hr
+    div.display-1.text-center.mb-5 Currently On Tap
+
+    div.container-fluid
+        div.row
+            each row in rows
+                if row.tap_id < 4
+                    div.col
+                        +tap(row)
+                else
+                    div.col
+                        div.tapdisplay
+                            img.mb-5(src="/images/logo.png")
+                            h1.mb-5 Coming Next
+
+                            h2= row["name"]
+                            h3= row["brewery_name"] + " - " + row["style"]
