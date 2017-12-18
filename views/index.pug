@@ -5,20 +5,22 @@ mixin tap(row)
         div.card-header
             div.tap-number.display-4.bg-primary.rounded-circle.text-center.mb-3= row["tap_id"]
             h1.card-title= row["name"]
-            h3.mb-4= row["brewery_name"] + " - " + row["style"]
+            h3.mb-4= row["style"]
             div.container-fluid.border.border-secondary.rounded.p-3
-                div.row
+                div.row.pt-3
                     div.col.text-center
                         div.srm-container
                             div.srm-indicator(style="background-color:" + convertSRM(row["srm"]) + ";")
                             div.srm-stroke
                         h4= row["srm"]
                     div.col.text-center 
-                        img(src="/images/ibu/full.png")
+                        div.ibu-container
+                            div.ibu-indicator
+                                div.ibu-full(style="height:" + row["ibu"] + "%;")
                         h4= row["ibu"]
                     div.col.text-center 
                         //img(src="/images/abv/full.png")
-                        h2= "ABV"
+                        h2= "Alcohol"
                         h2= row["abv"] + "%"
         div.card-body
             p.card-text= row["description"]
@@ -37,4 +39,4 @@ block content
                             img.mb-5(src="/images/logo.png")
                             h1.mb-5 Coming Next
                             h1= row["name"]
-                            h3= row["brewery_name"] + " - " + row["style"]
+                            h3= row["style"]

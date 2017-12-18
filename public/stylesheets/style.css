@@ -13,7 +13,7 @@ body {
 	font-size: 1.6rem;
 }
 
-/* SRM, IBU, ABV Indicators */
+/* SRM, IBU Indicators */
 .srm-container{
 	position: relative;
 	height: 100px;
@@ -39,7 +39,6 @@ body {
 	background: url(/images/srm/pint-stroke.png)
 }
 
-
 .ibu-container{
 	position: relative;
 	height:100px;
@@ -52,17 +51,12 @@ body {
 	left: 0;
 	height: 100%;
 	width: 100%;
-	background: url(img/ibu/stroke.png) no-repeat bottom left;
+	background: url(/images/ibu/stroke.png) no-repeat bottom left;
 }
 .ibu-indicator .ibu-full{
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	background: url(img/ibu/full.png) no-repeat bottom left;
-}
-.ibu-max{
-	position: absolute;
-	top: -5px;
-	left: 35px;
+	background: url(/images/ibu/full.png) no-repeat bottom left;
 }
