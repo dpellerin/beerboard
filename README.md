@@ -26,3 +26,4 @@ You must create and pre-populate the database. Run the following in the db folde
 
 - Add delete and add buttons for beers
 - Allow empty taps
+- Add periodic auto-refresh
