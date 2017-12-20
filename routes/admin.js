@@ -45,6 +45,7 @@ router.get('/edit_beer/:id', function(req, res){
         }
     });
     let sql = "SELECT * FROM beers WHERE id=" + req.params.id;
+
     db.get(sql, [], (err, row) => {
         if (err) { throw err; }
 
@@ -53,6 +54,7 @@ router.get('/edit_beer/:id', function(req, res){
             beer: row
         });
     })
+
     db.close();
 });
 
@@ -75,12 +77,30 @@ router.post('/save_beer', function(req, res){
         req.body.beer_id
     ];
     db.run(sql, data, function(err){
-        if(err) {
-
-        }
-        db.close();
+        if (err) { throw err; }
         res.redirect("/admin");
     });
+    db.close();
+});
+
+/* POST Save Tap Change */
+router.post('/save_tap', function(req, res){
+    let db = new sqlite3.Database(config.dbName, (err) => {
+        if (err) {
+          return console.error(err.message);
+        }
+    });
+
+    let sql = "UPDATE taps SET beer_id = ? WHERE id = ?";
+    let data = [ req.body.beerId, req.body.tapId ];
+
+    db.run(sql, data, function(err){
+        if (err) { throw err; }
+        res.json({});
+        console.log("data written");
+    });
+
+    db.close();
 });
 
 module.exports = router;

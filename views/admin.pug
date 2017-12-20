@@ -14,17 +14,23 @@ block content
                 tr
                     th(scope="col") Tap Number
                     th(scope="col") Beer
+                    th(scope="col")
             tbody
                 each tap in taps
                     tr
-                        td= tap["number"]
+                        if tap["number"] < 4
+                            td= tap["number"]
+                        else
+                            td Coming Soon
                         td
-                            select 
+                            select(id="sel-tap-" + tap["id"]) 
                                 each beer in beers 
                                     if tap["beer_id"] == beer["id"]
                                         option(selected="true", value= beer["id"])= beer["name"]
                                     else
                                         option(value= beer["id"])= beer["name"]
+                        td(width="200")
+                            span.text-success(id="alert-" + tap["id"], style="display: none;") Saved
     
     div.container
         table.table.table-dark
@@ -47,5 +53,5 @@ block content
                         td= beer["ibu"]
                         td= beer["abv"]
                         td.text-right 
-                            button.btn.btn-primary.btn-edit-beer(id="beer-id-"+beer["id"]) Edit
+                            button.btn.btn-primary.btn-edit-beer(id="beer-id-" + beer["id"]) Edit
                     
