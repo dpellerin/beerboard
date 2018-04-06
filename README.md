@@ -1,4 +1,4 @@
-## Beer Board
+# Beer Board
 
 by Dana Pellerin
 
@@ -10,14 +10,31 @@ It's written specifically for my three tap setup. I usually have one in fermenta
 
 I run this on a Raspberry Pi 3 attached to a 32" 1080p TV.   
 
-### Setup
+## Setup
+
+To install the dependencies, run the following from the project root:
+
+`npm install`
 
 You must create and pre-populate the database. Run the following in the db folder:
 
 `sqlite3 beerboard.sqlt < create.sql`
 
-### To Do
+Run the test server:
 
-- Add delete and add buttons for beers
-- Allow empty taps
+`npm start`
+
+Test by opening a browser and browsing to http://localhost:3000
+
+
+## To Do
+
 - Add periodic auto-refresh
+- Add ability to add a delete taps
+
+## Changes
+
+4/6/18 
+- Can add/edit/delete beers and coming soon beers.
+- Logo resizes automatically 
+- Can have empty taps

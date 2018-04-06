@@ -1,12 +1,12 @@
 extends layout
 
 block content
-    div.display-1.text-center.mb-5 Administration
+    div.text-center.mb-5 
+        h1 Administration
 
     div.container.col-sm-6.p-5.border.border-secondary.bg-dark
         h2 Edit Beer
-        form(action="/admin/save_beer", method="post")
-            input(type="hidden", name="beer_id", value=beer["id"])
+        form(action="/admin/beers/save/" + beer["id"], method="post")
             div.form-group
                 label(for="brewery_name") Brewery
                 input.form-control(type="text", name="brewery_name", id="brewery_name", value=beer["brewery_name"])
@@ -29,6 +29,11 @@ block content
                 div.form-group.col-sm-4
                     label(for="abv") ABV (%)
                     input.form-control(type="text", name="abv", id="abv", value=beer["abv"])
-            div.text-right
-                a.btn.btn-warning.mr-3(href="http:/admin") Cancel
-                button.btn.btn-primary(type="submit") Save
+            
+            div.container
+                div.row
+                    div.col.text-left.p-0
+                        a.btn.btn-danger(href="http:/admin/beers/delete/" + beer["id"]) Delete
+                    div.col.text-right.p-0
+                        a.btn.btn-warning.mr-3(href="http:/admin") Cancel
+                        button.btn.btn-primary(type="submit") Save

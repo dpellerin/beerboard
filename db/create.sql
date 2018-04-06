@@ -31,6 +31,15 @@ CREATE TABLE taps (
     beer_id INTEGER
 );
 
+--
+-- Coming Soon
+--
+CREATE TABLE coming_soon (
+    id INTEGER PRIMARY KEY,
+    number INTEGER NOT NULL,
+    beer_id INTEGER
+);
+
 
 --
 -- Insert data
@@ -59,5 +68,7 @@ VALUES (2, 2, 2);
 INSERT INTO taps (id, number, beer_id)
 VALUES (3, 3, 3);
 
-INSERT INTO taps (id, number, beer_id)
+
+-- Coming Soon
+INSERT INTO coming_soon (id, number, beer_id)
 VALUES (4, 4, 4);

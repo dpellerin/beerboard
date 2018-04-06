@@ -9,6 +9,7 @@ block content
         a(href="/") Display Beer Board
     
     div.container
+        h3 Taps
         table.table.table-dark
             thead
                 tr
@@ -18,12 +19,10 @@ block content
             tbody
                 each tap in taps
                     tr
-                        if tap["number"] < 4
-                            td= tap["number"]
-                        else
-                            td Coming Soon
+                        td= tap["number"]
                         td
-                            select(id="sel-tap-" + tap["id"]) 
+                            select(id="sel-tap-" + tap["id"])
+                                option(value= "none")= "None"
                                 each beer in beers 
                                     if tap["beer_id"] == beer["id"]
                                         option(selected="true", value= beer["id"])= beer["name"]
@@ -31,8 +30,33 @@ block content
                                         option(value= beer["id"])= beer["name"]
                         td(width="200")
                             span.text-success(id="alert-" + tap["id"], style="display: none;") Saved
-    
+
     div.container
+        p.h3 Coming Soon #[button.btn.btn-primary(id="btn-add-coming") New]
+                
+        table.table.table-dark
+            thead
+                tr
+                    th(scope="col") Beer
+                    th(scope="col")
+                    th(scope="col")
+            tbody
+                each coming in coming_soon
+                    tr
+                        td
+                            select(id="sel-coming-" + coming["id"])
+                                each beer in beers 
+                                    if coming["beer_id"] == beer["id"]
+                                        option(selected="true", value= beer["id"])= beer["name"]
+                                    else
+                                        option(value= beer["id"])= beer["name"]
+                        td(width="200")
+                            span.text-success(id="comingAlert-" + coming["id"], style="display: none;") Saved
+                        td.text-right
+                            button.btn.btn-danger.btn-rem-coming(id="coming-id-" + coming["id"]) Remove
+
+    div.container
+        p.h3 Beers #[button.btn.btn-primary(id="btn-add-beer") New]
         table.table.table-dark
             thead
                 tr
