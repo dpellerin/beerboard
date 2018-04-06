@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 // Route Dependencies
 var index = require('./routes/index');
 var admin = require('./routes/admin');
+var coming = require('./routes/coming');
+var beers = require('./routes/beers');
 
 var app = express();
 
@@ -28,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.use('/', index);
 app.use('/admin', admin);
+app.use('/admin/coming', coming);
+app.use('/admin/beers', beers);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

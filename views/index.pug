@@ -4,39 +4,45 @@ mixin tap(row)
     div.card.rounded.border-secondary
         div.card-header
             div.tap-number.display-4.bg-primary.rounded-circle.text-center.mb-3= row["tap_id"]
-            h1.card-title= row["name"]
-            h3.mb-4= row["style"]
-            div.container-fluid.border.border-secondary.rounded.p-3
-                div.row.pt-3
-                    div.col.text-center
-                        div.srm-container
-                            div.srm-indicator(style="background-color:" + convertSRM(row["srm"]) + ";")
-                            div.srm-stroke
-                        h4= row["srm"]
-                    div.col.text-center 
-                        div.ibu-container
-                            div.ibu-indicator
-                                div.ibu-full(style="height:" + row["ibu"] + "%;")
-                        h4= row["ibu"]
-                    div.col.text-center 
-                        //img(src="/images/abv/full.png")
-                        h2= "Alcohol"
-                        h2= row["abv"] + "%"
-        div.card-body
-            p.card-text= row["description"]
+            if row["name"]
+                h1.card-title= row["name"]
+                h3.mb-4= row["style"]
+                div.container-fluid.border.border-secondary.rounded.p-3
+                    div.row.pt-3
+                        div.col.text-center
+                            div.srm-container
+                                div.srm-indicator(style="background-color:" + convertSRM(row["srm"]) + ";")
+                                div.srm-stroke
+                            h4= row["srm"]
+                        div.col.text-center 
+                            div.ibu-container
+                                div.ibu-indicator
+                                    div.ibu-full(style="height:" + row["ibu"] + "%;")
+                            h4= row["ibu"]
+                        div.col.text-center 
+                            //img(src="/images/abv/full.png")
+                            h2= "Alcohol"
+                            h2= row["abv"] + "%"
+            else
+                h1.card-title= "Empty"
+        if row["name"]
+            div.card-body
+                p.card-text= row["description"]
 
 block content
     div.display-1.text-center.mb-5 Currently On Tap
 
     div.container-fluid
         div.card-deck
-            each row in rows
-                if row.tap_id < 4
-                    +tap(row)
-                else
-                    div.col
-                        div.text-center
-                            img.mb-5(src="/images/logo.png")
-                            h1.mb-5 Coming Next
-                            h1= row["name"]
-                            h3= row["style"]
+            each tap in taps
+                +tap(tap)
+
+            div.col
+                div.text-center
+                    img.mb-5.img-fluid(src="/images/logo.png")
+                    if coming.length > 0
+                        h1.mb-5 Coming Next
+                    each coming in coming_soon
+                        h2= coming["name"]
+                        p
+                            em= coming["style"]

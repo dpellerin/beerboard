@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    div.text-center.mb-5 
+        h1 Administration
+
+    div.container.col-sm-6.p-5.border.border-secondary.bg-dark
+        h2 New Beer
+        form(action="/admin/beers", method="post")
+            
+            div.form-group
+                label(for="brewery_name") Brewery
+                input.form-control(type="text", name="brewery_name", id="brewery_name")
+            div.form-group
+                label(for="name") Name
+                input.form-control(type="text", name="name", id="name")
+            div.form-group
+                label(for="style") Style
+                input.form-control(type="text", name="style", id="style")
+            div.form-group
+                label(for="description") Description
+                textarea.form-control(name="description", id="description", rows="6")
+            div.form-row
+                div.form-group.col-sm-4
+                    label(for="srm") SRM
+                    input.form-control(type="text", name="srm", id="srm")
+                div.form-group.col-sm-4
+                    label(for="ibu") IBU
+                    input.form-control(type="text", name="ibu", id="ibu")
+                div.form-group.col-sm-4
+                    label(for="abv") ABV (%)
+                    input.form-control(type="text", name="abv", id="abv")
+
+            div.text-right
+                a.btn.btn-warning.mr-3(href="http:/admin") Cancel
+                button.btn.btn-primary(type="submit") Save
