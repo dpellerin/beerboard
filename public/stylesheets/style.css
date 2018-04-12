@@ -60,3 +60,12 @@ body {
 	width: 100%;
 	background: url(/images/ibu/full.png) no-repeat bottom left;
 }
+
+hr {
+	border-color: #666;
+}
+
+.copyright {
+	color: #888;
+	text-align: center;
+}
