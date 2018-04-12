@@ -30,11 +30,4 @@ Test by opening a browser and browsing to http://localhost:3000
 ## To Do
 
 - Add periodic auto-refresh
-- Add ability to add a delete taps
-
-## Changes
-
-4/6/18 
-- Can add/edit/delete beers and coming soon beers.
-- Logo resizes automatically 
-- Can have empty taps
+- Add ability to add or delete taps
