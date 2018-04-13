@@ -9,7 +9,7 @@ block content
         a(href="/") Display Beer Board
     
     div.container
-        h3 Taps
+        p.h3 Taps #[button.btn.btn-primary(id="btn-add-tap") New]
         table.table.table-dark
             thead
                 tr
@@ -30,6 +30,8 @@ block content
                                         option(value= beer["id"])= beer["name"]
                         td(width="200")
                             span.text-success(id="alert-" + tap["id"], style="display: none;") Saved
+                        td.text-right
+                            button.btn.btn-danger.btn-rem-tap(id="tap-id-" + tap["id"])  Remove
 
     div.container
         p.h3 Coming Soon #[button.btn.btn-primary(id="btn-add-coming") New]

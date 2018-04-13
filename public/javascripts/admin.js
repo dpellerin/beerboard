@@ -1,5 +1,17 @@
 $(document).ready(function(){
     
+    // Add Tap Button Click
+    $("#btn-add-tap").click(function() {
+        document.location = "/admin/taps/new";
+    });
+
+    // Remove Tap Button Click
+    // Remove Coming Soon Button Click
+    $(".btn-rem-tap").click(function(){ 
+        let tapId = this.id.substr(this.id.lastIndexOf('-')+1);
+        document.location = "/admin/taps/rem/"+tapId;
+    });
+
     // Tap Beer Change
     $("select[id*='sel-tap']").change(function() {
         let tapId = this.id.substr(this.id.lastIndexOf('-')+1);
