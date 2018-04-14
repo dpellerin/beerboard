@@ -6,7 +6,7 @@ This is my first Node.js project.
 
 I wrote this because I felt that existing beer tap display projects were just too much to manage. All I wanted was something to show what I have on tap in my garage brewery. I wanted it simple and easy to update.
 
-It's written specifically for my three tap setup. I usually have one in fermentation so I made a "coming soon" section. I may eventually try to make it more flexible for other folks, but for now it was written exclusively for my needs. 
+You can modify the number of taps displayed, the number of upcoming beers, and you can have as many beers as you want in the database which makes serving up repeat beers easy. 
 
 I run this on a Raspberry Pi 3 attached to a 32" 1080p TV.   
 
