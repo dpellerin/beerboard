@@ -11,15 +11,16 @@ html(lang="en")
         link(rel="stylesheet", href="/stylesheets/style.css")
 
     body
+        div.main-container
+            div.content-container
+                block content
 
-        block content
-
-        div.container-fluid
-            hr
-            p.copyright &copy; 
-                = new Date().getFullYear()
-                = ' Dana Pellerin - '
-                a(href="/admin") Admin
+            div.container-fluid.copyright-container
+                hr
+                p.copyright &copy; 
+                    = new Date().getFullYear()
+                    = ' Dana Pellerin - '
+                    a(href="/admin") Administration
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

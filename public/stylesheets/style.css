@@ -3,14 +3,40 @@ body {
   color: #fff;
   background: url("/images/woodbg.jpg");
 }
+.main-container {
+	height: 1080px;
+	overflow: hidden;
+}
+.content-container {
+	height: 1055px;
+	overflow: hidden;
+}
+.copyright-container {
+
+}
+.copyright {
+	color: #888;
+	text-align: center;
+	margin: 0;
+}
+
+/* Cards */
 .tap-number {
 	width: 70px;
 }
 .card {
-	background-color: rgba(0, 0, 0, 0.4)
+	background-color: rgba(0, 0, 0, 0.4);
+	height: 880px;
+	overflow: hidden;
 }
 .card-text {
 	font-size: 1.6rem;
+}
+
+/* Misc */
+hr {
+	border-color: #666;
+	margin: 0;
 }
 
 /* SRM, IBU Indicators */
@@ -61,11 +87,5 @@ body {
 	background: url(/images/ibu/full.png) no-repeat bottom left;
 }
 
-hr {
-	border-color: #666;
-}
 
-.copyright {
-	color: #888;
-	text-align: center;
-}
+

@@ -37,12 +37,14 @@ block content
             each tap in taps
                 +tap(tap)
 
-            div.col
-                div.text-center
+            div.card.rounded.border-secondary
+                div.card-header
                     img.mb-5.img-fluid(src="/images/logo.png")
-                    if coming.length > 0
+                if coming.length > 0
+                    div.card-body
                         h1.mb-5 Coming Next
-                    each coming in coming_soon
-                        h2= coming["name"]
-                        p
-                            em= coming["style"]
+                        each coming in coming_soon
+                            hr
+                            h2= coming["name"]
+                            p.h4
+                                em= coming["style"]
