@@ -5,7 +5,7 @@ body {
 }
 .main-container {
 	height: 1080px;
-	overflow: hidden;
+	/* overflow: hidden; */
 }
 .content-container {
 	height: 1055px;

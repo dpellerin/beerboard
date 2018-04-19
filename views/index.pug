@@ -30,21 +30,22 @@ mixin tap(row)
                 p.card-text= row["description"]
 
 block content
-    div.display-1.text-center.mb-5 Currently On Tap
+    div.content-container
+        div.display-1.text-center.mb-5 Currently On Tap
 
-    div.container-fluid
-        div.card-deck
-            each tap in taps
-                +tap(tap)
+        div.container-fluid
+            div.card-deck
+                each tap in taps
+                    +tap(tap)
 
-            div.card.rounded.border-secondary
-                div.card-header
-                    img.mb-5.img-fluid(src="/images/logo.png")
-                if coming.length > 0
-                    div.card-body
-                        h1.mb-5 Coming Next
-                        each coming in coming_soon
-                            hr
-                            h2= coming["name"]
-                            p.h4
-                                em= coming["style"]
+                div.card.rounded.border-secondary
+                    div.card-header
+                        img.mb-5.img-fluid(src="/images/logo.png")
+                    if coming.length > 0
+                        div.card-body
+                            h1.mb-5 Coming Next
+                            each coming in coming_soon
+                                hr
+                                h2= coming["name"]
+                                p.h4
+                                    em= coming["style"]

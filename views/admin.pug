@@ -4,80 +4,81 @@ block script
     script(src="/javascripts/admin.js")
 
 block content
-    h1.text-center Administration
-    div.text-center
-        a(href="/") Display Beer Board
-    
     div.container
-        p.h3 Taps #[button.btn.btn-primary(id="btn-add-tap") New]
-        table.table.table-dark
-            thead
-                tr
-                    th(scope="col") Tap Number
-                    th(scope="col") Beer
-                    th(scope="col")
-            tbody
-                each tap in taps
+        h1.text-center Administration
+        div.text-center
+            a(href="/") Display Beer Board
+        
+        div.container
+            p.h3 Taps #[button.btn.btn-primary(id="btn-add-tap") New]
+            table.table.table-dark
+                thead
                     tr
-                        td= tap["number"]
-                        td
-                            select(id="sel-tap-" + tap["id"])
-                                option(value= "none")= "None"
-                                each beer in beers 
-                                    if tap["beer_id"] == beer["id"]
-                                        option(selected="true", value= beer["id"])= beer["name"]
-                                    else
-                                        option(value= beer["id"])= beer["name"]
-                        td(width="200")
-                            span.text-success(id="alert-" + tap["id"], style="display: none;") Saved
-                        td.text-right
-                            button.btn.btn-danger.btn-rem-tap(id="tap-id-" + tap["id"])  Remove
+                        th(scope="col") Tap Number
+                        th(scope="col") Beer
+                        th(scope="col")
+                tbody
+                    each tap in taps
+                        tr
+                            td= tap["number"]
+                            td
+                                select(id="sel-tap-" + tap["id"])
+                                    option(value= "none")= "None"
+                                    each beer in beers 
+                                        if tap["beer_id"] == beer["id"]
+                                            option(selected="true", value= beer["id"])= beer["name"]
+                                        else
+                                            option(value= beer["id"])= beer["name"]
+                            td(width="200")
+                                span.text-success(id="alert-" + tap["id"], style="display: none;") Saved
+                            td.text-right
+                                button.btn.btn-danger.btn-rem-tap(id="tap-id-" + tap["id"])  Remove
 
-    div.container
-        p.h3 Coming Soon #[button.btn.btn-primary(id="btn-add-coming") New]
-                
-        table.table.table-dark
-            thead
-                tr
-                    th(scope="col") Beer
-                    th(scope="col")
-                    th(scope="col")
-            tbody
-                each coming in coming_soon
+        div.container
+            p.h3 Coming Soon #[button.btn.btn-primary(id="btn-add-coming") New]
+                    
+            table.table.table-dark
+                thead
                     tr
-                        td
-                            select(id="sel-coming-" + coming["id"])
-                                each beer in beers 
-                                    if coming["beer_id"] == beer["id"]
-                                        option(selected="true", value= beer["id"])= beer["name"]
-                                    else
-                                        option(value= beer["id"])= beer["name"]
-                        td(width="200")
-                            span.text-success(id="comingAlert-" + coming["id"], style="display: none;") Saved
-                        td.text-right
-                            button.btn.btn-danger.btn-rem-coming(id="coming-id-" + coming["id"]) Remove
+                        th(scope="col") Beer
+                        th(scope="col")
+                        th(scope="col")
+                tbody
+                    each coming in coming_soon
+                        tr
+                            td
+                                select(id="sel-coming-" + coming["id"])
+                                    each beer in beers 
+                                        if coming["beer_id"] == beer["id"]
+                                            option(selected="true", value= beer["id"])= beer["name"]
+                                        else
+                                            option(value= beer["id"])= beer["name"]
+                            td(width="200")
+                                span.text-success(id="comingAlert-" + coming["id"], style="display: none;") Saved
+                            td.text-right
+                                button.btn.btn-danger.btn-rem-coming(id="coming-id-" + coming["id"]) Remove
 
-    div.container
-        p.h3 Beers #[button.btn.btn-primary(id="btn-add-beer") New]
-        table.table.table-dark
-            thead
-                tr
-                    th(scope="col") Name
-                    th(scope="col") Brewery
-                    th(scope="col") Style
-                    th(scope="col") SRM
-                    th(scope="col") IBU
-                    th(scope="col") ABV
-                    th(scope="col")
-            tbody
-                each beer in beers
+        div.container
+            p.h3 Beers #[button.btn.btn-primary(id="btn-add-beer") New]
+            table.table.table-dark
+                thead
                     tr
-                        td= beer["name"]
-                        td= beer["brewery_name"]
-                        td= beer["style"]
-                        td= beer["srm"]
-                        td= beer["ibu"]
-                        td= beer["abv"]
-                        td.text-right 
-                            button.btn.btn-primary.btn-edit-beer(id="beer-id-" + beer["id"]) Edit
+                        th(scope="col") Name
+                        th(scope="col") Brewery
+                        th(scope="col") Style
+                        th(scope="col") SRM
+                        th(scope="col") IBU
+                        th(scope="col") ABV
+                        th(scope="col")
+                tbody
+                    each beer in beers
+                        tr
+                            td= beer["name"]
+                            td= beer["brewery_name"]
+                            td= beer["style"]
+                            td= beer["srm"]
+                            td= beer["ibu"]
+                            td= beer["abv"]
+                            td.text-right 
+                                button.btn.btn-primary.btn-edit-beer(id="beer-id-" + beer["id"]) Edit
                     
