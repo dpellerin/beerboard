@@ -11,6 +11,9 @@ body {
 	height: 1055px;
 	overflow: hidden;
 }
+.coming-soon-container {
+	padding-bottom: 15px;
+}
 .copyright-container {
 
 }

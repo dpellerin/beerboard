@@ -45,7 +45,8 @@ block content
                         div.card-body
                             h1.mb-5 Coming Next
                             each coming in coming_soon
-                                hr
-                                h2= coming["name"]
-                                p.h4
-                                    em= coming["style"]
+                                div.coming-soon-container
+                                    hr
+                                    h2= coming["name"]
+                                    p.h4
+                                        em= coming["style"]
