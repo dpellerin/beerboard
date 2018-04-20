@@ -1,0 +1,20 @@
+extends layout
+
+block content
+    
+    include _navigation.pug
+
+    div.container
+        form(action="images/upload", method="post")
+            div.row
+                div.col
+                    h3= "Brewery Logo"
+                    input(type="file" id="uploadLogo")
+                    button(type="submit" value="logo") Submit
+                    img.img-fluid(src= config["logo"] )
+                    
+                div.col
+                    h3= "Beer Board Background"
+                    input(type="file" id="uploadBg")
+                    button(type="submit" value="bg") Submit
+                    img.img-fluid(src= config["bg"] )

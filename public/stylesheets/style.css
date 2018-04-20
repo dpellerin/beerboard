@@ -1,8 +1,9 @@
+/* HTML */
 body {
   background-color: #000;
   color: #fff;
-  background: url("/images/background.jpg");
 }
+
 
 /* Containers */
 .main-container {
@@ -48,6 +49,7 @@ hr {
 	border-color: #666;
 	margin: 0;
 }
+
 
 /* SRM, IBU Indicators */
 .srm-container{
@@ -95,6 +97,3 @@ hr {
 	width: 100%;
 	background: url(/images/ibu/full.png) no-repeat bottom left;
 }
-
-
-

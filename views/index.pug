@@ -40,7 +40,7 @@ block content
 
                 div.card.rounded.border-secondary
                     div.card-header
-                        img.mb-5.img-fluid(src="/images/logo.png")
+                        img.mb-5.img-fluid(src= config["logo"])
                     if coming.length > 0
                         div.card-body
                             h1.mb-5 Coming Next
@@ -50,3 +50,6 @@ block content
                                     h2= coming["name"]
                                     p.h4
                                         em= coming["style"]
+
+    style(type="text/css"). 
+        body { background-image: url( #{config["bg"]} ); background-repeat: no-repeat; }

@@ -20,20 +20,28 @@ router.get('/', function (req, res) {
 
     let taps_sql = "SELECT t.number AS tap_id, b.* FROM taps AS t LEFT JOIN beers as b ON t.beer_id = b.id";
     let coming_soon_sql = "SELECT c.number AS coming_order, b.* FROM coming_soon AS c JOIN beers as b ON c.beer_id = b.id";
+    let config_sql = "SELECT * from config WHERE id = 1";
 
-    db.all(taps_sql, [], (err, rows) => {
-        if (err) { throw err; }
-        taps = rows;
-    })
-    .all(coming_soon_sql, [], (err, rows) => {
-        if (err) { throw err; }
-        coming = rows;
+    db.serialize(() => {
+        db.all(taps_sql, [], (err, rows) => {
+            if (err) { throw err; }
+            taps = rows;
+        })
+        .get(config_sql, [], (err, row) => {
+            if (err) { throw err; }
+            site_config = row;
+        })
+        .all(coming_soon_sql, [], (err, rows) => {
+            if (err) { throw err; }
+            coming = rows;
 
-        res.render('index', {
-            title: 'Beer Board',
-            taps: taps,
-            coming_soon: coming,
-            convertSRM: srmToRgb
+            res.render('index', {
+                title: 'Beer Board',
+                taps: taps,
+                coming_soon: coming,
+                convertSRM: srmToRgb,
+                config: site_config
+            });
         });
     });
     db.close();

@@ -40,6 +40,14 @@ CREATE TABLE coming_soon (
     beer_id INTEGER
 );
 
+--
+-- Config
+--
+CREATE TABLE config (
+    id INTEGER PRIMARY KEY,
+    logo TEXT,
+    bg TEXT
+);
 
 --
 -- Insert data
@@ -72,3 +80,7 @@ VALUES (3, 3, 3);
 -- Coming Soon
 INSERT INTO coming_soon (id, number, beer_id)
 VALUES (4, 4, 4);
+
+-- Config
+INSERT INTO config (id, logo, bg)
+VALUES (1, '/images/logo.png', '/images/background.jpg');
