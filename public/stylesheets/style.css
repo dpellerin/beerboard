@@ -8,19 +8,20 @@ body {
 	/* overflow: hidden; */
 }
 .content-container {
-	height: 1055px;
+	height: 1040px;
 	overflow: hidden;
 }
 .coming-soon-container {
 	padding-bottom: 15px;
 }
 .copyright-container {
-
+	height: 40px;
 }
 .copyright {
 	color: #888;
 	text-align: center;
 	margin: 0;
+	line-height: 40px;
 }
 
 /* Cards */
@@ -29,7 +30,7 @@ body {
 }
 .card {
 	background-color: rgba(0, 0, 0, 0.4);
-	height: 880px;
+	height: 875px;
 	overflow: hidden;
 }
 .card-text {
