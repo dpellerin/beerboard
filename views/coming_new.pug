@@ -1,19 +1,18 @@
 extends layout
 
 block content
-    div.text-center.mb-5 
-        h1 Administration
+    include _navigation.pug
 
-        div.container.col-sm-6.p-5.border.border-secondary.bg-dark
-            h2 Coming Soon
+    div.container.col-sm-6.p-5.border.border-secondary.bg-dark
+        h2 Coming Soon
+        
+        form(action="/admin/coming", method="post")
+        
+            div.form-group
+                select(id="sel-coming" name="sel-coming")
+                    each beer in beers 
+                            option(value= beer["id"])= beer["name"]
             
-            form(action="/admin/coming", method="post")
-            
-                div.form-group
-                    select(id="sel-coming" name="sel-coming")
-                        each beer in beers 
-                                option(value= beer["id"])= beer["name"]
-                
-                div.text-right
-                    a.btn.btn-warning.mr-3(href="http:/admin") Cancel
-                    button.btn.btn-primary(type="submit") Save
+            div.text-right
+                a.btn.btn-warning.mr-3(href="http:/admin") Cancel
+                button.btn.btn-primary(type="submit") Save
