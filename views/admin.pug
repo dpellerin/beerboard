@@ -4,10 +4,9 @@ block script
     script(src="/javascripts/admin.js")
 
 block content
+    include _navigation.pug
+    
     div.container
-        h1.text-center Administration
-        div.text-center
-            a(href="/") Display Beer Board
         
         div.container
             p.h3 Taps #[button.btn.btn-primary(id="btn-add-tap") New]

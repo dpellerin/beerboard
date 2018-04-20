@@ -1,0 +1,16 @@
+div.container.navbar-container
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+        a.navbar-brand(href="/") Beer Board
+        button.navbar-toggler(
+            data-toggle="collapse" 
+            data-target="#navbarNav" 
+            aria-controls="navbarNav" 
+            aria-expanded="false" 
+            aria-label="Toggle navigation"
+        )
+            span.navbar-toggler-icon
+
+        div.collapse.navbar-collapse(id="navbarNav")
+            div.navbar-nav
+                a.nav-link(href="/admin")= "Taps & Beers"
+                a.nav-link(href="/admin/images")= "Images"
